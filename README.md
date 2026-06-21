@@ -159,6 +159,28 @@ Without the resource keys the system still works — it just attaches fewer link
 
 ---
 
+## Monetization (sandboxed Payment Protocol)
+
+PromptToPath has a credible, built-in monetization model: **roadmaps are free; a
+$1 "premium" deep-dive roadmap** (expanded resources and detail) is gated behind
+Fetch.ai's **Payment Protocol**. The Orchestrator implements the seller role and
+publishes the `AgentPaymentProtocol` manifest.
+
+For the hackathon this runs in **sandbox mode** (`PAYMENT_SANDBOX=true`) — **no
+cards are collected and no real money moves**. The seller verifies and settles the
+transaction automatically so the full `CommitPayment → CompletePayment` handshake
+is demonstrable end-to-end.
+
+Demo it against a running orchestrator (no changes to the live agents):
+```bash
+python -m scripts.payment_demo
+# Buyer commits a $1 sandbox payment → Orchestrator auto-completes → "PAYMENT COMPLETE ✅"
+```
+Swapping in real Stripe checkout is a config change (set `PAYMENT_SANDBOX=false` and
+provide Stripe test keys); it's intentionally disabled here.
+
+---
+
 ## License
 
 MIT (or your choice).
