@@ -1,4 +1,4 @@
-# Agentverse Profile Copy — PromptToPath
+# Agentverse Profile Copy - PromptToPath
 
 Copy-paste each block into the matching field on agentverse.ai. The
 **Orchestrator** is the public-facing agent users talk to via ASI:One — make its
@@ -19,9 +19,9 @@ Repo: https://github.com/Artsyadi/CalHacks_Berkeley
 
 **README / Agent Guide:**
 ```markdown
-# PromptToPath 🚀 — Your AI Learning Roadmap Architect
+# PromptToPath 🚀 - Your AI Learning Roadmap Architect
 
-Tell PromptToPath what you want to learn — anything from *"become an ML engineer
+Tell PromptToPath what you want to learn - anything from *"become an ML engineer
 in 6 months"* to *"learn to cook Italian food"* or *"I want to learn how to dance"* —
 and get back a personalized, phased, time-boxed roadmap with:
 
@@ -39,9 +39,9 @@ You'll get a complete roadmap back in under a minute.
 
 ## Why it's more than a chatbot
 PromptToPath orchestrates a **team of specialized agents**:
-- 🧭 **Planner** — runs a multi-pass debate to design a realistic, phased roadmap
-- 🔎 **Resource** — finds and HTTP-validates real learning links (no dead/hallucinated URLs)
-- 🗺️ **Graph** — renders the roadmap as a visual diagram + outline
+- 🧭 **Planner** - runs a multi-pass debate to design a realistic, phased roadmap
+- 🔎 **Resource** - finds and HTTP-validates real learning links (no dead/hallucinated URLs)
+- 🗺️ **Graph** - renders the roadmap as a visual diagram + outline
 
 This orchestrator coordinates them and returns the final result, with graceful
 fallback if any step is temporarily unavailable.
@@ -73,8 +73,8 @@ The planning brain of the **PromptToPath** multi-agent system.
 ## Purpose
 Turns a learning goal into a structured, realistic roadmap using a two-pass
 **propose → critique-and-finalize** debate:
-1. **Propose** — drafts a concise phased roadmap with a realistic timeline.
-2. **Critique & finalize** — checks for unrealistic pacing, missing prerequisites,
+1. **Propose** - drafts a concise phased roadmap with a realistic timeline.
+2. **Critique & finalize** - checks for unrealistic pacing, missing prerequisites,
    wrong ordering, and scope creep, then emits the corrected roadmap as structured JSON.
 
 ## Output
@@ -97,7 +97,7 @@ diagram), talk to the **PromptToPath** orchestrator agent.
 **Avatar idea:** 🔎 (magnifying glass) on a solid color.
 
 **About / Description:**
-> Internal PromptToPath agent — finds and HTTP-validates real learning resources (YouTube videos, docs, courses) for each roadmap topic, so links are never broken or hallucinated.
+> Internal PromptToPath agent - finds and HTTP-validates real learning resources (YouTube videos, docs, courses) for each roadmap topic, so links are never broken or hallucinated.
 
 **README / Agent Guide:**
 ```markdown
@@ -109,7 +109,7 @@ The resource-finder of the **PromptToPath** multi-agent system.
 Attaches **real, validated** learning links to each roadmap topic:
 - Searches the live web for relevant videos, docs, and courses.
 - **HTTP-validates every URL** (concurrently, with a hard time budget) and drops
-  anything unreachable — so the roadmap never ships dead or hallucinated links.
+  anything unreachable - so the roadmap never ships dead or hallucinated links.
 - Best-effort by design: if a source is unavailable, the roadmap simply carries
   fewer links rather than failing.
 
@@ -129,7 +129,7 @@ orchestrator agent.
 **Avatar idea:** 🗺️ (map) on a solid color.
 
 **About / Description:**
-> Internal PromptToPath agent — renders enriched learning roadmaps as a visual Mermaid diagram plus a clean markdown outline for display inside chat.
+> Internal PromptToPath agent - renders enriched learning roadmaps as a visual Mermaid diagram plus a clean markdown outline for display inside chat.
 
 **README / Agent Guide:**
 ```markdown
@@ -143,7 +143,7 @@ Converts an enriched roadmap into chat-ready output:
 - A **markdown outline** with goals and inline, clickable validated resource links.
 
 Renders as a diagram in Mermaid-aware clients and degrades gracefully to readable
-text everywhere else — no custom frontend required.
+text everywhere else - no custom frontend required.
 
 ## Note
 This is an internal component. For the full experience, talk to the **PromptToPath**
