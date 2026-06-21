@@ -4,7 +4,7 @@ Copy-paste each block into the matching field on agentverse.ai. The
 **Orchestrator** is the public-facing agent users talk to via ASI:One — make its
 profile the strongest. The other three are internal workers.
 
-Replace `<GITHUB_URL>` once the repo is pushed.
+Replace `https://github.com/Artsyadi/CalHacks_Berkeley` once the repo is pushed.
 
 ---
 
@@ -49,7 +49,7 @@ fallback if any step is temporarily unavailable.
 ## Details
 - Built with **Fetch.ai uAgents** + **ASI:One**; cross-checked with Claude.
 - Includes a **sandboxed Payment Protocol** demo (no real charges, no card capture).
-- Open source: <GITHUB_URL>
+- Open source: https://github.com/Artsyadi/CalHacks_Berkeley
 - Contact: dawale@usc.edu
 ```
 
@@ -85,7 +85,7 @@ and diagram rendering.
 This is an internal component. For the full experience (roadmap + verified links +
 diagram), talk to the **PromptToPath** orchestrator agent.
 
-- Built with Fetch.ai uAgents + ASI:One. Open source: <GITHUB_URL> · dawale@usc.edu
+- Built with Fetch.ai uAgents + ASI:One. Open source: https://github.com/Artsyadi/CalHacks_Berkeley · dawale@usc.edu
 ```
 
 ---
@@ -117,7 +117,7 @@ Attaches **real, validated** learning links to each roadmap topic:
 This is an internal component. For the full experience, talk to the **PromptToPath**
 orchestrator agent.
 
-- Built with Fetch.ai uAgents. Open source: <GITHUB_URL> · dawale@usc.edu
+- Built with Fetch.ai uAgents. Open source: https://github.com/Artsyadi/CalHacks_Berkeley · dawale@usc.edu
 ```
 
 ---
@@ -149,5 +149,5 @@ text everywhere else — no custom frontend required.
 This is an internal component. For the full experience, talk to the **PromptToPath**
 orchestrator agent.
 
-- Built with Fetch.ai uAgents. Open source: <GITHUB_URL> · dawale@usc.edu
+- Built with Fetch.ai uAgents. Open source: https://github.com/Artsyadi/CalHacks_Berkeley · dawale@usc.edu
 ```
