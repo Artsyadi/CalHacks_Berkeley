@@ -4,6 +4,10 @@
 !.env.example
 agentverse-profile.md
 
+# Local-only (not for the public repo)
+images/
+docs/pitch-deck-and-script.md
+
 # Python
 .venv/
 venv/

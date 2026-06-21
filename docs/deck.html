@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PromptToPath Pitch Deck</title>
+<style>
+  :root{
+    --bg:#0c1020; --bg2:#11162b; --card:#161d38; --ink:#eaf0ff;
+    --muted:#9fb0d6; --accent:#6c8cff; --accent2:#36e2b4; --line:#2a335a;
+    --good:#36e2b4; --bad:#ff7a7a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    overflow:hidden;
+  }
+  .slide{
+    position:fixed; inset:0; display:none; flex-direction:column;
+    justify-content:center; padding:6vh 8vw;
+    background:radial-gradient(1200px 600px at 80% -10%, #1a2347 0%, var(--bg) 60%);
+  }
+  .slide.active{display:flex; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  h1{font-size:5.2vw; line-height:1.05; letter-spacing:-.5px}
+  h2{font-size:3vw; margin-bottom:2.2vh; letter-spacing:-.3px}
+  .kicker{color:var(--accent2); font-weight:700; text-transform:uppercase;
+    letter-spacing:3px; font-size:1.1vw; margin-bottom:1.6vh}
+  p,li{font-size:1.55vw; line-height:1.5; color:var(--ink)}
+  .muted{color:var(--muted)}
+  ul{list-style:none; display:flex; flex-direction:column; gap:1.4vh; margin-top:1vh}
+  li{padding-left:2.4vw; position:relative}
+  li::before{content:"▸"; position:absolute; left:0; color:var(--accent)}
+  .tag{display:inline-block;background:var(--card);border:1px solid var(--line);
+    color:var(--muted);padding:.5vh 1.1vw;border-radius:999px;font-size:1vw;margin-top:3vh}
+  .accent{color:var(--accent)}
+  .accent2{color:var(--accent2)}
+  .big{font-size:2vw}
+  .quote{border-left:4px solid var(--accent2); padding:1.5vh 0 1.5vh 2vw;
+    margin-top:3vh; font-style:italic; color:var(--ink); font-size:1.7vw}
+
+  .row{display:flex; gap:3vw; align-items:center}
+  .col{flex:1}
+
+  .imgbox{flex:1; min-height:46vh; border:1px solid var(--line); border-radius:14px;
+    background:var(--bg2); overflow:hidden; display:flex; align-items:center;
+    justify-content:center; position:relative}
+  .imgbox img{width:100%; height:100%; object-fit:contain; display:block}
+  .ph{color:var(--muted); text-align:center; padding:2vw; font-size:1.1vw}
+  .ph b{color:var(--accent); display:block; font-size:1.3vw; margin-bottom:1vh}
+
+  table{width:100%; border-collapse:collapse; margin-top:2vh; font-size:1.35vw}
+  th,td{text-align:left; padding:1.4vh 1.4vw; border-bottom:1px solid var(--line)}
+  th{color:var(--accent2); font-size:1.2vw; text-transform:uppercase; letter-spacing:1px}
+  td:first-child{color:var(--muted); width:22%}
+  .vs-bad{color:var(--bad)} .vs-good{color:var(--good); font-weight:600}
+
+  pre{background:var(--bg2); border:1px solid var(--line); border-radius:12px;
+    padding:2.2vh 2vw; font-size:1.25vw; line-height:1.7; color:var(--ink); margin-top:1vh;
+    font-family:'Cascadia Code',Consolas,monospace; white-space:pre}
+  .pipe .accent{font-weight:700}
+
+  .footer{position:fixed; bottom:2.4vh; left:8vw; right:8vw; display:flex;
+    justify-content:space-between; align-items:center; color:var(--muted); font-size:1vw}
+  .dots{display:flex; gap:.6vw}
+  .dot{width:.7vw; height:.7vw; border-radius:50%; background:var(--line)}
+  .dot.on{background:var(--accent)}
+  .brand{font-weight:700; letter-spacing:.5px}
+  .brand .accent2{font-weight:800}
+
+  .links li::before{content:""}
+  .links li{padding-left:0; font-family:monospace; font-size:1.25vw; color:var(--accent2)}
+
+  .hint{position:fixed; top:2vh; right:2vw; color:var(--muted); font-size:.95vw; opacity:.6}
+
+  @media print{
+    body{overflow:visible}
+    .slide{position:relative; display:flex !important; page-break-after:always;
+      height:100vh; inset:auto}
+    .footer,.hint{position:static}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1 TITLE -->
+<section class="slide active">
+  <div class="kicker">CalHacks · UC Berkeley · Fetch.ai ASI:One Agent Challenge</div>
+  <h1>PromptToPath <span class="accent2">🚀</span></h1>
+  <p class="big muted" style="margin-top:2vh">A better way to learn in the age of AI.</p>
+  <p style="margin-top:3vh; max-width:60vw">Turn <span class="accent">any</span> learning goal into a
+    personalized roadmap, with <span class="accent2">verified resources</span>, inside an ASI:One chat.</p>
+  <span class="tag">Solo build · Aditya (USC)</span>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide">
+  <div class="kicker">The Problem</div>
+  <h2>Learning is broken by too much content, not too little.</h2>
+  <ul>
+    <li>Generic AI advice like "pick a style, practice consistently"</li>
+    <li>🔗 <span class="accent">Made-up or dead links</span> when you ask for resources</li>
+    <li>No structure, no timeline, no <span class="accent2">visual</span> path</li>
+    <li>You still have to go do all the searching yourself</li>
+  </ul>
+</section>
+
+<!-- 3 SOLUTION -->
+<section class="slide">
+  <div class="kicker">The Solution</div>
+  <h2>Tell PromptToPath what you want to learn. Get a real plan.</h2>
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li>🗺️ A <span class="accent2">visual roadmap diagram</span></li>
+        <li>📅 <span class="accent">Phased, time-boxed</span> milestones</li>
+        <li>🎥 <span class="accent2">Verified, clickable resources</span> per topic</li>
+        <li>💬 All inside <span class="accent">ASI:One</span>. No app, no frontend</li>
+      </ul>
+    </div>
+    <div class="imgbox" data-img="a1-roadmap.png" data-label="ASI:One roadmap reply (diagram + links)"></div>
+  </div>
+</section>
+
+<!-- 4 DEMO -->
+<section class="slide">
+  <div class="kicker">Live Demo</div>
+  <h2>From prompt → roadmap in ~30 seconds.</h2>
+  <div class="imgbox" data-img="a1b-diagram.png" data-label="ASI:One roadmap (diagram + phases)"></div>
+  <p class="muted" style="margin-top:2vh">Prompt → "spinning up the agent team" → live progress → full roadmap with diagram and <span class="accent2">clickable, validated</span> links. <span class="accent">(Live demo during recording.)</span></p>
+</section>
+
+<!-- 5 ARCHITECTURE -->
+<section class="slide">
+  <div class="kicker">Not Another Chatbot</div>
+  <h2>A team of specialized agents collaborates on every request.</h2>
+  <div class="row">
+    <div class="col">
+      <pre class="pipe">ASI:One user
+   │  (Agent Chat Protocol)
+   ▼
+<span class="accent">🚀 Orchestrator</span>
+   ├─▶ <span class="accent2">🧭 Planner</span>   debate &amp; design
+   ├─▶ <span class="accent2">🔎 Resource</span>  real links + validate
+   └─▶ <span class="accent2">🗺️ Graph</span>     draw the diagram
+   ◀── final roadmap ──┘</pre>
+    </div>
+    <div class="imgbox" data-img="a2-terminals.png" data-label="four agent terminals firing"></div>
+  </div>
+</section>
+
+<!-- 6 DIFFERENT -->
+<section class="slide">
+  <div class="kicker">Why It's Different</div>
+  <h2>vs. ChatGPT / Gemini</h2>
+  <table>
+    <tr><th></th><th>ChatGPT / Gemini</th><th>PromptToPath</th></tr>
+    <tr><td>Resources</td><td class="vs-bad">"Go search YouTube," no real links</td><td class="vs-good">Real, validated links per topic</td></tr>
+    <tr><td>Output</td><td class="vs-bad">Generic advice, then asks YOU a question</td><td class="vs-good">Commits to a concrete roadmap</td></tr>
+    <tr><td>Visual</td><td class="vs-bad">Wall of text</td><td class="vs-good">Mermaid roadmap diagram</td></tr>
+    <tr><td>Architecture</td><td class="vs-bad">One model, one pass</td><td class="vs-good">Team of agents: debate→research→draw</td></tr>
+    <tr><td>Ecosystem</td><td class="vs-bad">Closed chatbox</td><td class="vs-good">Discoverable agent · composable · can transact</td></tr>
+  </table>
+  <div class="quote">"Ask GPT or Gemini to learn to dance and they tell you to go search YouTube. PromptToPath hands you the validated links and draws you the map."</div>
+</section>
+
+<!-- 7 FETCH ALIGNMENT -->
+<section class="slide">
+  <div class="kicker">Built on Fetch.ai</div>
+  <h2>Everything the challenge asks for, done.</h2>
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li>✅ Multiple agents <span class="accent">registered on Agentverse</span></li>
+        <li>✅ <span class="accent">Agent Chat Protocol</span> (usable via ASI:One)</li>
+        <li>✅ Real <span class="accent2">tool execution</span> (web search + validation)</li>
+        <li>✅ Genuine <span class="accent2">agent-to-agent orchestration</span></li>
+        <li>✅ Full workflow, <span class="accent">no custom frontend</span></li>
+        <li>🎁 Bonus: multi-agent · real-time data · recovery · <span class="accent2">Payment Protocol</span></li>
+      </ul>
+    </div>
+    <div class="imgbox" data-img="a3-agentverse.png" data-label="Orchestrator Agentverse profile"></div>
+  </div>
+</section>
+
+<!-- 7b THE TEAM ON AGENTVERSE -->
+<section class="slide">
+  <div class="kicker">Live on Agentverse</div>
+  <h2>Four agents, registered and discoverable.</h2>
+  <div class="imgbox" data-img="a4-agents.png" data-label="all four agents on Agentverse" style="min-height:58vh"></div>
+</section>
+
+<!-- 8 RELIABILITY + MONEY -->
+<section class="slide">
+  <div class="kicker">Reliability &amp; Monetization</div>
+  <h2>Engineered to work on stage, and to make money.</h2>
+  <ul>
+    <li>🛡️ <span class="accent2">Never hard-fails:</span> progress heartbeats keep the session alive; if any agent stalls, the Orchestrator falls back to a direct roadmap.</li>
+    <li>💳 <span class="accent2">Monetization:</span> roadmaps free; a <span class="accent">$1 premium deep-dive</span> gated behind Fetch.ai's Payment Protocol (sandboxed, no real charge).</li>
+  </ul>
+  <pre style="margin-top:2vh"><span class="accent2">Buyer</span>  → CommitPayment  ($1.00, sandbox)
+<span class="accent">Seller</span> → CompletePayment  ✅  <span class="muted">(no card, no real charge)</span>
+        <span class="accent2">premium roadmap unlocked</span></pre>
+</section>
+
+<!-- 9 NEXT + LINKS -->
+<section class="slide">
+  <div class="kicker">What's Next</div>
+  <h2>Roadmap for PromptToPath</h2>
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li>Always-on cloud deployment (runs after the hackathon)</li>
+        <li>Personalization: skill level, time budget, progress tracking</li>
+        <li>Live Stripe payments for premium roadmaps</li>
+        <li>"Refine this phase" follow-ups</li>
+      </ul>
+    </div>
+    <div class="col">
+      <p class="accent2" style="font-weight:700; margin-bottom:1.5vh">Try it</p>
+      <ul class="links">
+        <li>💬 asi1.ai/shared-chat/fe8d1d70…6856b0a</li>
+        <li>🤖 Agentverse: agent1qtqflca…y2fgugc</li>
+        <li>💻 github.com/Artsyadi/CalHacks_Berkeley</li>
+      </ul>
+      <p style="margin-top:3vh" class="big accent">Thank you! 🚀</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  <span class="brand">PromptTo<span class="accent2">Path</span></span>
+  <span class="dots" id="dots"></span>
+  <span id="counter">1 / 9</span>
+</div>
+<div class="hint">← → to navigate · F fullscreen · P print/PDF</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  const dots=document.getElementById('dots');
+  slides.forEach((_,n)=>{const d=document.createElement('span');d.className='dot'+(n===0?' on':'');dots.appendChild(d);});
+  const dotEls=[...dots.children];
+
+  // resolve images from ./assets/<filename>; show placeholder if missing
+  document.querySelectorAll('.imgbox[data-img]').forEach(box=>{
+    const file=box.getAttribute('data-img');
+    const label=box.getAttribute('data-label')||file;
+    const img=new Image();
+    img.src='assets/'+file;
+    img.onload=()=>{box.innerHTML='';box.appendChild(img);};
+    img.onerror=()=>{box.innerHTML='<div class="ph"><b>'+label+'</b>drop <code>assets/'+file+'</code> in the folder</div>';};
+  });
+
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    dotEls.forEach((d,k)=>d.classList.toggle('on',k===i));
+    document.getElementById('counter').textContent=(i+1)+' / '+slides.length;
+  }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(i+1);
+    else if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1);
+    else if(e.key==='Home')show(0);
+    else if(e.key==='End')show(slides.length-1);
+    else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+    else if(e.key.toLowerCase()==='p')window.print();
+  });
+  document.addEventListener('click',e=>{ if(!e.target.closest('a')) show(i+1); });
+</script>
+</body>
+</html>
