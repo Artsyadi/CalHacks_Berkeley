@@ -2,6 +2,7 @@
 .env
 .env.*
 !.env.example
+agentverse-profile.md
 
 # Python
 .venv/
