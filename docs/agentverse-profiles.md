@@ -4,7 +4,7 @@ Copy-paste each block into the matching field on agentverse.ai. The
 **Orchestrator** is the public-facing agent users talk to via ASI:One — make its
 profile the strongest. The other three are internal workers.
 
-Replace `https://github.com/Artsyadi/CalHacks_Berkeley` once the repo is pushed.
+Repo: https://github.com/Artsyadi/CalHacks_Berkeley
 
 ---
 
